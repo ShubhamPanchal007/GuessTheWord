@@ -1,9 +1,14 @@
 from words import words
 import random
 
-
-def GuessIt(words):
-    randWord = random.choice(words)
+def filterWord(words):
+        word = random.choice(words)
+        while '-' in words or ' ' in words:
+             word = random.choice(words)
+        return word
+def GuessIt(word):
+    randWord = word
+    print(word)
     usedGuessedWords_List = []
     lives = 7
     while lives > 0:
@@ -29,5 +34,5 @@ def GuessIt(words):
             print(F"YOU LOSE, THE WORD WAS {randWord.upper()}")
 
    
-
-GuessIt(words)
+filteredWord = filterWord(words)
+GuessIt(filteredWord)
